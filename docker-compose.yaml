@@ -1,0 +1,15 @@
+services:
+    k8s:
+        command: mix run --no-halt
+
+        image: ghcr.io/malomohq/elixir:1.11
+
+        ports:
+            - 4000:4000
+
+        volumes:
+            - source: .
+
+              target: /usr/local/src/malomo
+
+              type: bind
