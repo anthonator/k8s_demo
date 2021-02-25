@@ -13,7 +13,8 @@ defmodule K8S.MixProject do
 
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: { K8S.Application, [] }
     ]
   end
 
@@ -21,7 +22,9 @@ defmodule K8S.MixProject do
     [
       { :jason, "~> 1.2" },
 
-      { :phoenix, "~> 1.5" }
+      { :phoenix, "~> 1.5" },
+
+      { :plug_cowboy, "~> 2.4" }
     ]
   end
 end
