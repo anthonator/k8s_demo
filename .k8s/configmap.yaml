@@ -1,0 +1,11 @@
+apiVersion: v1
+
+data:
+    k8s-demo-message: "Hello, demo!"
+
+kind: ConfigMap
+
+metadata:
+    name: k8s-demo-configmap
+
+    namespace: k8s-demo

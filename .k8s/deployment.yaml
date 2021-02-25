@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+    labels:
+        app: k8s-demo
+
+    name: k8s-demo
+
+    namespace: k8s-demo
+
+spec:
+    replicas: 1
+
+    selector:
+        matchLabels:
+            app: k8s-demo
+
+    template:
+        metadata:
+            labels:
+                app: k8s-demo
+
+        spec:
+            containers:
+                - env:
+                    - name: K8S_DEMO_MESSAGE
+
+                      valueFrom:
+                          configMapKeyRef:
+                              key: k8s-demo-message
+
+                              name: k8s-demo-configmap
+
+                  image: k8s
+
+                  imagePullPolicy: IfNotPresent
+
+                  name: k8s-demo
+
+                  ports:
+                      - containerPort: 4000

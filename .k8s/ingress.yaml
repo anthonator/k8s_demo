@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+
+kind: Ingress
+
+metadata:
+    annotations:
+        kubernetes.io/ingress.class: nginx
+        
+    name: k8s-demo-ingress
+
+    namespace: k8s-demo
+
+spec:
+    rules:
+        - http:
+              paths:
+                  - backend:
+                        service:
+                            name: k8s-demo-http
+
+                            port:
+                                number: 4000
+
+                    path: /
+
+                    pathType: Prefix
+
+          host: localhost
