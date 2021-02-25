@@ -18,6 +18,8 @@ defmodule K8S.MixProject do
   end
 
   defp deps do
-    []
+    [
+      { :phoenix, "~> 1.5" }
+    ]
   end
 end
